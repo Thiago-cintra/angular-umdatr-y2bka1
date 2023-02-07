@@ -1,0 +1,47 @@
+<a [routerLink]="" (click)="([])">
+  <h2>Produtos</h2>
+</a>
+<table>
+  <thead>
+    <tr>
+      <td>Produto</td>
+      <td>Ação</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of listProduct">
+      <td>
+        {{ product.name }}
+      </td>
+      <td>
+        <a (click)="delProduct(product)">X</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<br />
+<form #form="ngForm">
+  <p>
+    <input
+      required
+      placeholder="Produto"
+      type="text"
+      [(ngModel)]="newProduct.name"
+      name="name"
+      size="10"
+      maxlength="30"
+    />
+    <input
+      required
+      placeholder="Preço"
+      type="text"
+      [(ngModel)]="newProduct.price"
+      name="price"
+      size="10"
+      maxlength="30"
+    />
+    <br />
+    <button (click)="addProduct(form)">Novo</button>
+  </p>
+</form>
